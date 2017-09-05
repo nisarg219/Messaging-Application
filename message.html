@@ -1,0 +1,51 @@
+
+<div class="jumbotron" id="chat">
+
+    <h2 class="title">Chat Messages</h2>
+
+    <div>
+        <button class="btn btn-primary">Compose Message</button>
+<!--        <button  class="btn btn-primary">View Messages</button>-->
+    </div>
+
+    <div id="sendMessage">
+        <form class="form">
+           
+            <div class="form-group">
+                <label for="to">To: </label>
+                <input type="text" id="to" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="message">Message: </label>
+                <textarea rows="5" id="message"  class="form-control"></textarea>
+            </div>
+            <div>
+                <button ng-click="sendmessage()" class="btn btn-info" >Send</button>
+                <button ng-click ="clearmessage()"class="btn btn-danger">Discard</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="viewMessage" >
+        <p>View Messages here</p>
+        <table class="table" id="ViewTable">
+            <thead>
+                <tr>
+                    <th class="MsgFrom">From</th>
+                    <th class="msg">Message</th>
+                    <th class="msgDate">Date</th>
+                    <th class="Msgoption">Options</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="user in user3 track by $index">
+                <tr id='tr_'+i+>
+                    <td class="MsgFrom">{{user.sender}}</td>
+                    <td class="msg"> {{user.mess}}</td>
+                    <td class="msgDate"></td>
+                   <td class="Msgoption"><button class="btn btn-info" >View</button>&nbsp;&nbsp;
+                        <button class="btn btn-danger" ng-click="removeRow(user.sender)">X Delete</button></td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>

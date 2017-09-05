@@ -1,0 +1,57 @@
+ <style>
+  body{
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+</style>
+
+<body onload="profile()" >
+<div ng-controller="profileCtrl">
+    <ng-include src='"welcome.html"'></ng-include>
+
+    <div class="jumbotron" id="profile">
+        <!--    <ng-include src="welcome.html"></ng-include>-->
+        <h1 class="title">WELCOME {{user.Firstname | uppercase}}</h1>
+        <form novalidate class="form-group">
+            <div>
+
+                <b>First Name:</b><span ng-hide="profile.editMode">{{user.Firstname | uppercase}}</span>
+                <input type="text" id="fname" ng-model="user.Firstname" ng-show="profile.editMode" class="form-control">      </div>
+
+            <div>
+                <b>Last Name:</b><span ng-hide="profile.editMode">{{user.Lastname | uppercase}}</span>
+                            <input type="text" id="lname" ng-model="user.Lastname" ng-show="profile.editMode" class="form-control">
+            </div>
+
+            <div>
+                <b>Username:</b><span ng-hide="profile.editMode">{{user.Userid | uppercase}}</span>
+                           <input type="text" id="uname" ng-model="user.Userid" ng-show="profile.editMode" class="form-control">
+            </div>
+
+            <div>
+                <b>Email:</b> <span ng-hide="profile.editMode">{{user.Emailid | uppercase}}</span>
+                           <input type="text" id="ename" ng-model="user.Emailid" ng-show="profile.editMode" class="form-control">
+            </div>
+
+            <div>
+                <b>Password:</b> <span ng-hide="profile.editMode">{{user.password | uppercase}}</span>
+                <input type="text" id="pname" ng-model="user.password" ng-show="profile.editMode" class="form-control">
+            </div>
+
+            <div>
+                          <b>Confirm Password:</b> <span ng-hide="profile.editMode">{{profile.userProfile.confirmPassword}}</span>
+                <input type="text" ng-model="profile.userProfile.confirmPassword" ng-show="profile.editMode" class="form-control">
+            </div>
+
+            <div>
+                <br />
+                <button ng-click="profile.trigerEditMode()" ng-hide="profile.editMode" class="btn btn-danger btn-sm">Edit</button>
+                <button ng-click="profile.saveUpdatedInfo()" ng-show="profile.editMode" class="btn btn-warning btn-sm">Update</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>

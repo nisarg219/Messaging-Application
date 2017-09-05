@@ -1,0 +1,100 @@
+<div ng-controller="registerCtrl">
+<div class="jumbotron" id="signup">
+    <h2 class="title2  text-center text-white " >Registration Form</h2>
+    <form class="form-horizontal" name="signupForm" ng-submit="formData(regData)" novalidate>
+        <div class="form-group">
+            <label for="firstname" >First Name </label>
+            <div class="input-group"  >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  type="text" name="firstname" placeholder="Firstname" ng-required="true" id="firstname" class="form-control" ng-model="regData.firstname">
+
+                <span style="font-color:white" ng-show="signupForm.firstname.$touched && signupForm.firstname.$invalid" class="invalid">Please enter a valid First Name</span>
+
+                <span id="invalidFirstname" style="display:none;" class="invalid">First Name cannot have numbers, symbols and length is less than 20</span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" >Last Name </label>
+            <div class="input-group"  >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                <input type="text" name="lastname" placeholder="Lastname" ng-required="true" id="lastname" class="form-control" ng-model="regData.lastname">
+
+                <span ng-show="signupForm.lastname.$touched && signupForm.lastname.$invalid" class="invalid">Please enter a valid Last Name</span>
+
+                <span id="invalidLastname" style="display:none;" class="invalid">Last Name cannot have numbers, symbols and length is less than 20</span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label for="username" >Username </label>
+            <div class="input-group"  >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                <input type="text" name="username" placeholder="Username" ng-required="true" id="username" class="form-control" ng-model="regData.username">
+
+                <span ng-show="signupForm.username.$touched && signupForm.username.$invalid" class="invalid">Please enter a valid Username</span>
+
+                <span id="invalidusername" style="display:none;" class="invalid">Max length is 20</span>
+
+                <span id="userNameAlreadyUsed" style="display:none;" class="invalid">Username already used...!!!</span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email </label>
+            <div class="input-group"  >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" name="email" placeholder="Email" ng-required="true" id="email" class="form-control" ng-model="regData.email">
+
+                <span ng-show="signupForm.email.$touched && signupForm.email.$invalid" class="invalid">Please enter a valid Email</span>
+
+                <span id="invalidEmail" style="display:none;" class="invalid">Please enter a valid Email</span>
+
+                <span id="emailAlreadyUsed" style="display:none;" class="invalid">Email already used...!!!</span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" >Password </label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" name="password" placeholder="Password" ng-required="true" id="password"  class="form-control" ng-model="regData.password">
+
+                <span ng-show="signupForm.password.$touched && signupForm.password.$invalid" class="invalid">Please enter a valid Password</span>
+
+                <span id="invalidPassword" style="display:none;" class="invalid">Please enter a Password with min 6 - max 15 characters !!!</span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword" >location </label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-required="true" id="confirmPassword" class="form-control" ng-model="regData.confirmPassword">
+
+                <span ng-show="signupForm.confirmPassword.$touched && signupForm.confirmPassword.$invalid" class="invalid">Please enter a valid Password</span>
+
+                <span id="invalidConfirmPassword" style="display:none;" class="invalid">Your password does not match. Please try again !!!</span>
+
+            </div>
+        </div>
+
+
+
+        <div >
+
+            <button type="submit" value="Sign-up" class="btn btn-warning btn-block" ng-click="validateInput()"> ok</button>
+
+        </div>
+    </form>
+</div>
+</div>
