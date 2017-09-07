@@ -1,2 +1,2 @@
 # Messaging-Application
-AngularJS messanging application.
+AngularJS messaging application.
